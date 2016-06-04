@@ -1,7 +1,7 @@
 #Ubuntu for Development and SRE Work
 
 ###[Upstart Fix](http://askubuntu.com/questions/614970/vivid-failed-to-connect-to-upstart-connection-refused)
-Ubuntu has recently made the switch to SystemD. Not a bad thing, but many scripts (like the SSH one coming up next) still use Upstart. Lukcily we have a quick fix to tide us ove in the interim. 
+Ubuntu has recently made the switch to SystemD. Not a bad thing, but many scripts (like the SSH one coming up next) still use Upstart. Luckily we have a quick fix to tide us ove in the interim. 
 
 `sudo apt-get install -y upstart-sysv`
 
@@ -65,6 +65,7 @@ sudo npm install -g yo
 Install Packer
 
 ```
+cd ~
 mkdir packer
 cd packer
 wget https://dl.bintray.com/mitchellh/packer/packer_0.8.6_linux_amd64.zip
@@ -151,10 +152,14 @@ import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7
 
 And hit enter
 
-###[Chrome](http://www.howtogeek.com/203768/beginner-how-to-install-google-chrome-in-ubuntu-14.04/)
+###[Chrome](http://askubuntu.com/a/510186)
+
+
 ```
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg –I google-chrome-stable_current_amd64.deb
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+sudo apt-get update 
+sudo apt-get install google-chrome-stable -y
 ```
 
 ###[Slack Using ScudCloud](https://github.com/raelgc/scudcloud)
