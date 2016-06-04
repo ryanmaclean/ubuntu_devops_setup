@@ -76,7 +76,7 @@ sudo apt-get install -y linux-image-extra-$(uname -r)
 sudo rm -rf /etc/default/docker
 sudo apt-get install -y docker-engine
 sudo service docker start
-sudo usermod -aG docker ubuntu
+sudo usermod -aG docker `echo $USER`
 docker -v
 ```
 
